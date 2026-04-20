@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #13131a;
+  --bg-tertiary: #1c1c2b;
+  --text-primary: #e4e4e7;
+  --text-secondary: #a1a1aa;
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+  --accent-emerald: #10b981;
+  --accent-rose: #f43f5e;
+  --accent-amber: #f59e0b;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  @apply bg-bg-primary text-text-primary font-sans antialiased;
+  background-image:
+    radial-gradient(circle at 12% 12%, rgba(59, 130, 246, 0.1), transparent 28%),
+    radial-gradient(circle at 86% 22%, rgba(139, 92, 246, 0.1), transparent 32%),
+    linear-gradient(180deg, rgba(10, 10, 15, 1) 0%, rgba(10, 10, 15, 0.96) 100%);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3b82f6 #13131a;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-track {
+  background: #13131a;
+}
+
+@layer components {
+  .panel {
+    @apply rounded-xl border border-white/10 bg-bg-secondary backdrop-blur;
+  }
+
+  .panel-title {
+    @apply font-mono text-xl text-text-primary;
+  }
+
+  .muted {
+    @apply text-text-secondary;
+  }
+
+  .primary-btn {
+    @apply inline-flex items-center rounded-md bg-accent-blue px-4 py-2 text-sm font-medium text-white transition hover:opacity-90;
+  }
+}
+

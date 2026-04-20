@@ -1,0 +1,1 @@
+import { ModelId } from "@/lib/types"; export const MODELS: Array<{ id: ModelId; label: string; color: string }> = [{ id: "gpt-4o", label: "GPT-4o", color: "#3b82f6" }, { id: "gpt-4o-mini", label: "GPT-4o Mini", color: "#8b5cf6" }, { id: "gpt-3.5-turbo", label: "GPT-3.5 Turbo", color: "#f59e0b" }];

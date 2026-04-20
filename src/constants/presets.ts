@@ -1,0 +1,1 @@
+export const PRESET_PROMPTS = { temperatureLab: "The future of mechanistic interpretability depends on", tokenLandscape: "The keys to the cabinet", contextProbing: "In the middle of the sentence, important context matters because" };

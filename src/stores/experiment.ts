@@ -1,0 +1,1 @@
+import { create } from "zustand"; interface ExperimentState { input: string; setInput: (value: string) => void; } export const useExperimentStore = create<ExperimentState>((set) => ({ input: "The future of AI depends on", setInput: (value) => set({ input: value }) }));

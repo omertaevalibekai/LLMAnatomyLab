@@ -1,0 +1,1 @@
+import { describe, expect, it } from "vitest"; import { responseCache } from "@/lib/cache"; describe("cache", () => { it("stores", () => { responseCache.set("k", { ok: true }); expect(responseCache.get<{ ok: boolean }>("k")?.ok).toBe(true); }); });

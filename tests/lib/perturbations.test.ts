@@ -1,0 +1,1 @@
+import { describe, expect, it } from "vitest"; import { generatePerturbations } from "@/lib/perturbations"; describe("perturbations", () => { it("generates", () => { const items = generatePerturbations("good model", 0, ["synonym", "antonym", "delete"]); expect(items).toHaveLength(3); expect(items[0]?.text).toContain("great"); }); });
