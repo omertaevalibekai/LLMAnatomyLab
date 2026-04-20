@@ -1,6 +1,7 @@
 import crypto from "node:crypto";
 import OpenAI, { APIError } from "openai";
 import { responseCache } from "@/lib/cache";
+import { requireServerEnv } from "@/lib/env";
 import {
   BatchAnalyzeResult,
   LogprobsResponse,
@@ -13,8 +14,7 @@ import {
 const DEFAULT_MODEL: ModelId = "gpt-4o-mini";
 const RETRYABLE_STATUS = new Set([429, 500, 502, 503, 504]);
 
-const apiKey = process.env.OPENAI_API_KEY;
-export const openai = new OpenAI({ apiKey });
+let openaiClient: OpenAI | null = null;
 
 const hashKey = (payload: string): string =>
   crypto.createHash("sha256").update(payload).digest("hex");
@@ -46,8 +46,11 @@ const mapTopLogprobs = (
   }));
 };
 
-const ensureApiKey = (): void => {
-  if (!apiKey) throw new Error("OPENAI_API_KEY is required to run live experiments.");
+const getOpenAIClient = (): OpenAI => {
+  if (!openaiClient) {
+    openaiClient = new OpenAI({ apiKey: requireServerEnv("OPENAI_API_KEY") });
+  }
+  return openaiClient;
 };
 
 const toUsage = (
@@ -62,11 +65,11 @@ export const getLogprobs = async (
   prompt: string,
   model: ModelId = DEFAULT_MODEL,
 ): Promise<LogprobsResponse> => {
-  ensureApiKey();
   const cacheKey = hashKey(JSON.stringify({ fn: "getLogprobs", prompt, model }));
   const cached = responseCache.get<LogprobsResponse>(cacheKey);
   if (cached) return { ...cached, cached: true };
 
+  const openai = getOpenAIClient();
   const completion = await withBackoff(() =>
     openai.chat.completions.create({
       model,
@@ -100,11 +103,11 @@ export const getLogprobsSequence = async (
   prompt: string,
   model: ModelId = DEFAULT_MODEL,
 ): Promise<SequenceLogprobsResponse> => {
-  ensureApiKey();
   const cacheKey = hashKey(JSON.stringify({ fn: "getLogprobsSequence", prompt, model }));
   const cached = responseCache.get<SequenceLogprobsResponse>(cacheKey);
   if (cached) return { ...cached, cached: true };
 
+  const openai = getOpenAIClient();
   const completion = await withBackoff(() =>
     openai.chat.completions.create({
       model,
