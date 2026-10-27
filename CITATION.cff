@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "LLM Anatomy Lab: behavioral interpretability explorer for large language models"
+abstract: >-
+  Interactive web explorer for the behavioral interpretability of large
+  language models.
+authors:
+  - given-names: Alibek
+    family-names: Omertaev
+repository-code: "https://github.com/omertaevalibekai/LLMAnatomyLab"
+url: "https://llm-anatomy-lab.vercel.app"
+keywords:
+  - interpretability
+  - large language models
+  - explainable ai
