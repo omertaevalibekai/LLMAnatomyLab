@@ -1,1 +1,1 @@
-export const ProbabilityDistribution = (): JSX.Element => <div className="rounded-md bg-bg-secondary p-4">ProbabilityDistribution</div>;
+export const ProbabilityDistribution = (): React.JSX.Element => <div className="rounded-md bg-bg-secondary p-4">ProbabilityDistribution</div>;

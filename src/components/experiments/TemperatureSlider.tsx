@@ -18,7 +18,7 @@ export const TemperatureSlider = ({
   temperature,
   topK,
   topP,
-}: TemperatureSliderProps): JSX.Element => {
+}: TemperatureSliderProps): React.JSX.Element => {
   const distribution = useMemo(() => {
     return applyTemperature(logits, temperature)
       .map((probability, index) => ({
@@ -39,11 +39,14 @@ export const TemperatureSlider = ({
     };
   }, [distribution]);
 
-  let cumulative = 0;
-  const topPIndex = distribution.findIndex((entry) => {
-    cumulative += entry.probability;
-    return cumulative >= topP;
-  });
+  const topPIndex = useMemo(() => {
+    let cumulative = 0;
+    for (const [index, entry] of distribution.entries()) {
+      cumulative += entry.probability;
+      if (cumulative >= topP) return index;
+    }
+    return -1;
+  }, [distribution, topP]);
 
   return (
     <div className="space-y-6 rounded-lg bg-bg-secondary p-6">
@@ -78,7 +81,7 @@ export const TemperatureSlider = ({
   );
 };
 
-const Metric = ({ label, value }: { label: string; value: string }): JSX.Element => (
+const Metric = ({ label, value }: { label: string; value: string }): React.JSX.Element => (
   <div className="rounded-md bg-bg-primary p-3">
     <p className="text-xs uppercase text-text-secondary">{label}</p>
     <p className="font-mono text-lg text-text-primary">{value}</p>

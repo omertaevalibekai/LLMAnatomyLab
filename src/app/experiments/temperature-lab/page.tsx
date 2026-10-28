@@ -1,13 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { BlockMath } from "react-katex";
+import { BlockMath } from "@/components/shared/BlockMath";
 import { TemperatureSlider } from "@/components/experiments/TemperatureSlider";
 
 const logits = Array.from({ length: 80 }, (_, i) => Math.cos(i * 0.23) * 1.8 - i * 0.01);
 const labels = Array.from({ length: 80 }, (_, i) => `token_${i + 1}`);
 
-export default function TemperatureLabPage(): JSX.Element {
+export default function TemperatureLabPage(): React.JSX.Element {
   const [temperature, setTemperature] = useState(0.8);
   const [topK, setTopK] = useState(20);
   const [topP, setTopP] = useState(0.92);
@@ -89,7 +89,7 @@ const Control = ({
   label: string;
   value: string;
   children: React.ReactNode;
-}): JSX.Element => (
+}): React.JSX.Element => (
   <div>
     <p className="text-sm text-text-secondary">{label}</p>
     <p className="font-mono text-sm text-text-primary">{value}</p>

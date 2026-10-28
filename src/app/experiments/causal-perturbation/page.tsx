@@ -6,7 +6,7 @@ import { PerturbationType, generatePerturbations } from "@/lib/perturbations";
 
 const DEFAULT_TEXT = "The good model predicts stable answers";
 
-export default function CausalPerturbationPage(): JSX.Element {
+export default function CausalPerturbationPage(): React.JSX.Element {
   const [text, setText] = useState(DEFAULT_TEXT);
   const [tokenIndex, setTokenIndex] = useState(1);
   const [type, setType] = useState<PerturbationType>("synonym");
@@ -76,7 +76,7 @@ export default function CausalPerturbationPage(): JSX.Element {
   );
 }
 
-const CascadeList = ({ label, values }: { label: string; values: number[] }): JSX.Element => (
+const CascadeList = ({ label, values }: { label: string; values: number[] }): React.JSX.Element => (
   <div>
     <p className="mb-2 text-xs uppercase tracking-wide text-text-secondary">{label}</p>
     <div className="space-y-2">

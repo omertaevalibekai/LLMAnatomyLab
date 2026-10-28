@@ -16,7 +16,7 @@ const NAV_ITEMS: Array<{ href: Route; label: string }> = [
   { href: "/about", label: "About" },
 ];
 
-export default function RootLayout({ children }: { children: React.ReactNode }): JSX.Element {
+export default function RootLayout({ children }: { children: React.ReactNode }): React.JSX.Element {
   return (
     <html lang="en" className="dark">
       <body>

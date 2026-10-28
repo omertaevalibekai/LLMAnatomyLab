@@ -7,7 +7,7 @@ import { confidenceByContext } from "@/lib/demo-experiments";
 const DEFAULT_TEXT =
   "In long technical prompts, the final prediction often depends on an early constraint";
 
-export default function ContextProbingPage(): JSX.Element {
+export default function ContextProbingPage(): React.JSX.Element {
   const [text, setText] = useState(DEFAULT_TEXT);
   const curve = useMemo(() => confidenceByContext(text), [text]);
   const drops = useMemo(

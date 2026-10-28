@@ -5,7 +5,7 @@ import { buildLandscape } from "@/lib/demo-experiments";
 
 const DEFAULT_TEXT = "The keys to the cabinet are on the table";
 
-export default function TokenLandscapePage(): JSX.Element {
+export default function TokenLandscapePage(): React.JSX.Element {
   const [text, setText] = useState(DEFAULT_TEXT);
   const [selectedPosition, setSelectedPosition] = useState<number | null>(0);
   const landscape = useMemo(() => buildLandscape(text, 10), [text]);

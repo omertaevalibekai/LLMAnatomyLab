@@ -6,7 +6,7 @@ import { compareModels, divergenceScore } from "@/lib/demo-experiments";
 
 const DEFAULT_TEXT = "The capital of France is";
 
-export default function ModelComparisonPage(): JSX.Element {
+export default function ModelComparisonPage(): React.JSX.Element {
   const [text, setText] = useState(DEFAULT_TEXT);
   const models = useMemo(() => compareModels(text), [text]);
   const divergence = useMemo(() => divergenceScore(text), [text]);

@@ -1,1 +1,1 @@
-export const ContextDecayChart = (): JSX.Element => <div className="rounded-md bg-bg-secondary p-4">ContextDecayChart</div>;
+export const ContextDecayChart = (): React.JSX.Element => <div className="rounded-md bg-bg-secondary p-4">ContextDecayChart</div>;

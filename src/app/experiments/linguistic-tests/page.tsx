@@ -14,7 +14,7 @@ const scoreCase = (input: string, expectedToken: string, model: string): "pass" 
   return "fail";
 };
 
-export default function LinguisticTestsPage(): JSX.Element {
+export default function LinguisticTestsPage(): React.JSX.Element {
   const suites = useMemo(() => Object.entries(LINGUISTIC_SUITES), []);
 
   return (

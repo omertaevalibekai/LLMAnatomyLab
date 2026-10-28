@@ -7,7 +7,7 @@
 1. Install dependencies:
 
 ```bash
-npm install
+npm ci
 ```
 
 2. Create `.env.local` in the project root:
@@ -21,3 +21,21 @@ OPENAI_API_KEY=YOUR_OPENAI_API_KEY
 ```bash
 npm run dev
 ```
+
+## Development checks
+
+Use Node.js 22.16+ (CI uses Node 22).
+
+```sh
+npm ci
+npm run lint
+npm run typecheck
+npm test
+npm run build
+```
+
+Tests and builds do not require an OpenAI key. Configure `.env.local` only for live model requests. Production builds use Webpack explicitly.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
