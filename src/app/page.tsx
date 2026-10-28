@@ -45,7 +45,7 @@ const cards: Array<{
   },
 ];
 
-export default function HomePage(): JSX.Element {
+export default function HomePage(): React.JSX.Element {
   return (
     <div className="space-y-14">
       <section className="panel relative overflow-hidden p-8 md:p-12">
@@ -104,7 +104,7 @@ export default function HomePage(): JSX.Element {
   );
 }
 
-const Stat = ({ label, value }: { label: string; value: string }): JSX.Element => (
+const Stat = ({ label, value }: { label: string; value: string }): React.JSX.Element => (
   <div className="rounded-lg bg-bg-primary p-4">
     <p className="text-xs uppercase tracking-wide text-text-secondary">{label}</p>
     <p className="mt-1 font-mono text-sm text-text-primary">{value}</p>

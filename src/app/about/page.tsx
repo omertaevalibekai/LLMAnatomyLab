@@ -1,6 +1,6 @@
-import { BlockMath } from "react-katex";
+import { BlockMath } from "@/components/shared/BlockMath";
 
-export default function AboutPage(): JSX.Element {
+export default function AboutPage(): React.JSX.Element {
   return (
     <div className="space-y-6">
       <section className="panel p-8">

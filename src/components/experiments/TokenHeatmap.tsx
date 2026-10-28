@@ -1,6 +1,6 @@
 import React from "react";
 
-export const TokenHeatmap = (): JSX.Element =>
+export const TokenHeatmap = (): React.JSX.Element =>
   React.createElement(
     "div",
     { className: "rounded-md bg-bg-secondary p-4" },
